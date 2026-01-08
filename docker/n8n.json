@@ -1,0 +1,151 @@
+{
+  "name": "n8n",
+  "repo": "docker.n8n.io/n8nio/n8n",
+  "network": "bridge",
+  "custom_ip": "",
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart=unless-stopped",
+  "post_parameters": "",
+  "web_ui_url": "http://[IP]:[PORT:5678]",
+  "icon": "https://browserflow.io/images/N8N-badge.png",
+  "project": "https://n8n.io/",
+  "support": "",
+  "description": "n8n is a flexible workflow automation platform that enables connecting apps and APIs together, as well as implementing multi-step AI agents and integrations.",
+  "paths": [
+    {
+      "name": "data",
+      "mode": "rw",
+      "host": "/mnt/cache/appdata/n8n",
+      "container": "/home/node/.n8n",
+	  "required": false
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "protocol": "tcp",
+      "host": "5678",
+      "container": "5678",
+      "description": null,
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Database Type",
+      "key": "DB_TYPE",
+      "value": "postgresdb",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Database Name",
+      "key": "DB_POSTGRESDB_DATABASE",
+      "value": "postgres",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Database Host",
+      "key": "DB_POSTGRESDB_HOST",
+      "value": "postgresql",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Database Port",
+      "key": "DB_POSTGRESDB_PORT",
+      "value": "5432",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Database User",
+      "key": "DB_POSTGRESDB_USER",
+      "value": "",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Database Schema",
+      "key": "DB_POSTGRESDB_SCHEMA",
+      "value": "",
+      "description": null,
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Database Password",
+      "key": "DB_POSTGRESDB_PASSWORD",
+      "value": "",
+      "description": null,
+      "required": false,
+      "mask": true
+    },
+    {
+      "name": "Time Zone",
+      "key": "TZ",
+      "value": "CET",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Generic Time Zone",
+      "key": "GENERIC_TIMEZONE",
+      "value": "CET",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "n8n Runners Enabled",
+      "key": "N8N_RUNNERS_ENABLED",
+      "value": "true",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "n8n Enforce Settings File Permissions",
+      "key": "N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS",
+      "value": "true",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "1000",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "1000",
+      "description": null,
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Allow HTTP",
+      "key": "N8N_SECURE_COOKIE",
+      "value": "false",
+      "description": null,
+      "required": false,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "gpus": []
+}
